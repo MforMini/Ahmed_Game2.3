@@ -148,7 +148,7 @@ class ViewController: UIViewController, subviewDelegate {
                 self.cloud2.center.x -= self.view.bounds.width
         }, completion: nil
         )
-        
+        	
         //Cloud 3
         UIView.animate(withDuration: 1.5, delay: 0.0, options: [UIViewAnimationOptions.repeat, .curveLinear], animations:
             {
@@ -165,7 +165,11 @@ class ViewController: UIViewController, subviewDelegate {
         
         
     };
-    
+                }
+            }
+        }
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -173,4 +177,5 @@ class ViewController: UIViewController, subviewDelegate {
 
 
 }
+
 
