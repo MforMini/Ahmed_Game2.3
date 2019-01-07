@@ -98,7 +98,9 @@ class ViewController: UIViewController, subviewDelegate {
              UIImage(named:"Coin_9.png")!,
              UIImage(named:"Coin_10.png")!]
              
+                //Coin speed and positioning
              coinImage.image = UIImage.animatedImage(with: coinArray, duration: 0.5)
+                coinImage.frame = CGRect(x:self.W, y:CGFloat(arc4random_uniform(self.H)-50)), width: self.W*(0.1), height
         
         //Pokeball - Enemy
         for index in 0...9{
@@ -120,7 +122,7 @@ class ViewController: UIViewController, subviewDelegate {
              UIImage(named:"Pokeball_7.png")!,
              UIImage(named:"Pokeball_8.png")!]
                 
-        //Pokeball animation and positioning
+        //Pokeball speed and positioning
         pokeballImage.image = UIImage.animatedImage(with: pokeArray, duration: 1.0)
         pokeballImage.frame = CGRect (x: 800, y: CGFloat(arc4random_uniform(UInt32(300))), width: 80, height: 35)
                 
