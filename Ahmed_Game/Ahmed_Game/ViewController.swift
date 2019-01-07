@@ -20,10 +20,7 @@ class ViewController: UIViewController, subviewDelegate {
     func changeSomething(){
         collisionBehaviour.removeAllBoundaries()
         collisionBehaviour.addBoundary(withIdentifier: "barrier" as NSCopying,for: UIBezierPath(rect:pidgeot.frame))
-        func addScore(){
-            gameScore += 1
-            scoreLabel.text = "Score: \(gameScore)"
-        }
+        addScore()
     }
 
     //Score for the game
@@ -47,6 +44,8 @@ class ViewController: UIViewController, subviewDelegate {
     @IBOutlet weak var cloud4: UIImageView!
     
     //End game links
+    @IBOutlet weak var gameOver: UIImageView!
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
     //loops
@@ -79,6 +78,7 @@ class ViewController: UIViewController, subviewDelegate {
         pidgeot.frame = CGRect(x:0, y: H*(0.33), width: W*(0.16), height: H*(0.12))
         
         //Coin - Collectible
+        
         for index in 0...9{
             
             let delay = Double(self.coinArray1[index])
@@ -101,7 +101,7 @@ class ViewController: UIViewController, subviewDelegate {
              
                 //Coin speed and positioning
              coinImage.image = UIImage.animatedImage(with: coinArray, duration: 0.5)
-                coinImage.frame = CGRect(x:self.W, y:CGFloat(arc4random_uniform(UInt32(self.H)-100)), width: self.W*(0.1), height: self.H*(0.1))
+                coinImage.frame = CGRect(x:self.W, y:CGFloat(arc4random_uniform(UInt32(self.H)-100)), width: self.W*(0.05), height: self.H*(0.05))
                 
                 self.view.addSubview(coinImage)
                 self.view.bringSubview(toFront: coinImage)
@@ -117,16 +117,13 @@ class ViewController: UIViewController, subviewDelegate {
                         coinImage.removeFromSuperview()
                         }
                         
-                        //Timer
-                        let timer = DispatchTime.now() + 20
-                        DispatchQueue.main.asyncAfter(deadline: timer){
-                
-                        }
-                
+                                       }
+            }
+ 
         //Pokeball - Enemy
-        for index in 0...9{
         
-            let delay = Double(self.pokeArray1[index])
+        for index2 in 0 ... 9 {
+        let delay = Double(self.pokeArray1[index2])
         let release = DispatchTime.now() + delay
             DispatchQueue.main.asyncAfter(deadline: release){
                 
@@ -145,7 +142,7 @@ class ViewController: UIViewController, subviewDelegate {
                 
         //Pokeball speed and positioning
         pokeballImage.image = UIImage.animatedImage(with: pokeArray, duration: 1.0)
-        pokeballImage.frame = CGRect (x: 800, y: CGFloat(arc4random_uniform(UInt32(self.H)-100)), width: self.W*(0.1), height: self.H*(0.1))
+        pokeballImage.frame = CGRect (x: 800, y: CGFloat(arc4random_uniform(UInt32(self.H)-100)), width: self.W*(0.05), height: self.H*(0.05))
                 
                 self.view.addSubview(pokeballImage)
                 self.view.bringSubview(toFront: pokeballImage)
@@ -155,8 +152,7 @@ class ViewController: UIViewController, subviewDelegate {
                 self.dynamicBehaviour.addLinearVelocity(CGPoint(x: -200, y: 0), for: pokeballImage)
                 self.collisionBehaviour.addItem(pokeballImage)
         
-        
-             
+            }
         //Animation of clouds
         //Cloud 1
         UIView.animate(withDuration: 1.0, delay: 0.0, options: [UIViewAnimationOptions.repeat, .curveLinear], animations:
@@ -186,13 +182,21 @@ class ViewController: UIViewController, subviewDelegate {
         }, completion: nil
         )
         
-            }
-    };
-                }
-            }
-        }
     }
+        }
+  
+    //Timer
+    let timer = DispatchTime.now() + 20
+    DispatchQueue.main.asyncAfter(deadline: timer){
         
+        self.gameOver.alpha = 1
+    
+    }
+    }
+    func addScore(){
+        gameScore += 1
+        scoreLabel.text = "Score: \(gameScore)"
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

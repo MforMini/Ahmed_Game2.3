@@ -44,6 +44,7 @@
 		4336636721C944AB00CF6EB6 /* Piget4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4336636121C944AB00CF6EB6 /* Piget4.png */; };
 		4336636821C944AB00CF6EB6 /* Piget5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4336636221C944AB00CF6EB6 /* Piget5.png */; };
 		4336636921C944AB00CF6EB6 /* Piget6.png in Resources */ = {isa = PBXBuildFile; fileRef = 4336636321C944AB00CF6EB6 /* Piget6.png */; };
+		43944D6F21E3F182004254E6 /* FFTGame_Over_Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 43944D6E21E3F182004254E6 /* FFTGame_Over_Screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		4336636121C944AB00CF6EB6 /* Piget4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Piget4.png; path = Ahmed_Game/Pidgeot/Piget4.png; sourceTree = SOURCE_ROOT; };
 		4336636221C944AB00CF6EB6 /* Piget5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Piget5.png; path = Ahmed_Game/Pidgeot/Piget5.png; sourceTree = SOURCE_ROOT; };
 		4336636321C944AB00CF6EB6 /* Piget6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Piget6.png; path = Ahmed_Game/Pidgeot/Piget6.png; sourceTree = SOURCE_ROOT; };
+		43944D6E21E3F182004254E6 /* FFTGame_Over_Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FFTGame_Over_Screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 				4312506821906B9400FE930C /* Movement.swift */,
 				4312503621905F8100FE930C /* ViewController.swift */,
 				4312503821905F8100FE930C /* Main.storyboard */,
+				43944D6E21E3F182004254E6 /* FFTGame_Over_Screen.png */,
 				0546270121E12EF600908AAF /* Ahmed_Game.xcodeproj */,
 				05C7467321E25327009CAD70 /* Pokeballs */,
 				05E3310D21E146EC00529203 /* Clouds */,
@@ -376,6 +379,7 @@
 				0546271521E12EF700908AAF /* Coin_2.png in Resources */,
 				0546271621E12EF700908AAF /* Coin_1.png in Resources */,
 				4336636621C944AB00CF6EB6 /* Piget3.png in Resources */,
+				43944D6F21E3F182004254E6 /* FFTGame_Over_Screen.png in Resources */,
 				05E3310C21E146D300529203 /* Cloud_4.png in Resources */,
 				0546270D21E12EF700908AAF /* Coin_5.png in Resources */,
 				05E3310B21E146D300529203 /* Cloud_2.png in Resources */,

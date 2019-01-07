@@ -60,6 +60,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FFTGame_Over_Screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="SQe-wR-PNE">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <connections>
@@ -68,7 +72,8 @@
                         <outlet property="Cloud3" destination="FA0-zd-4QJ" id="SYH-W3-pBb"/>
                         <outlet property="Cloud4" destination="DiH-z2-S4H" id="ORe-iH-ECT"/>
                         <outlet property="Pidgeot" destination="QXK-7d-Uqq" id="Xe2-Oe-DJf"/>
-                        <outlet property="scoreLabel" destination="H1v-MC-Jq2" id="6d5-Ec-h7W"/>
+                        <outlet property="gameOver" destination="SQe-wR-PNE" id="gLi-L8-wlb"/>
+                        <outlet property="scoreLabel" destination="H1v-MC-Jq2" id="Bn8-TQ-jKT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,5 +87,6 @@
         <image name="Cloud_2.png" width="204" height="116"/>
         <image name="Cloud_3.png" width="217" height="105"/>
         <image name="Cloud_4.png" width="248" height="120"/>
+        <image name="FFTGame_Over_Screen.png" width="480" height="272"/>
     </resources>
 </document>
