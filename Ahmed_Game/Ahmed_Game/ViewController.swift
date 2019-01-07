@@ -101,7 +101,7 @@ class ViewController: UIViewController, subviewDelegate {
              
                 //Coin speed and positioning
              coinImage.image = UIImage.animatedImage(with: coinArray, duration: 0.5)
-                coinImage.frame = CGRect(x:self.W, y:CGFloat(arc4random_uniform(UInt32(self.H)-50)), width: self.W*(0.1), height: self.H*(0.1))
+                coinImage.frame = CGRect(x:self.W, y:CGFloat(arc4random_uniform(UInt32(self.H)-100)), width: self.W*(0.1), height: self.H*(0.1))
                 
                 self.view.addSubview(coinImage)
                 self.view.bringSubview(toFront: coinImage)
@@ -145,7 +145,7 @@ class ViewController: UIViewController, subviewDelegate {
                 
         //Pokeball speed and positioning
         pokeballImage.image = UIImage.animatedImage(with: pokeArray, duration: 1.0)
-        pokeballImage.frame = CGRect (x: 800, y: CGFloat(arc4random_uniform(UInt32(300))), width: 80, height: 35)
+        pokeballImage.frame = CGRect (x: 800, y: CGFloat(arc4random_uniform(UInt32(self.H)-100)), width: self.W*(0.1), height: self.H*(0.1))
                 
                 self.view.addSubview(pokeballImage)
                 self.view.bringSubview(toFront: pokeballImage)
