@@ -16,14 +16,14 @@ protocol  subviewDelegate{
 
 class ViewController: UIViewController, subviewDelegate {
     
-    //let when = DispatchTime.now() + 20
-    //DispatchQueue.main.asyncAfter(deadline: when)
-    //{// Your code for actions when the time is up}
     
     func changeSomething(){
         collisionBehaviour.removeAllBoundaries()
         collisionBehaviour.addBoundary(withIdentifier: "barrier" as NSCopying,for: UIBezierPath(rect:pidgeot.frame))
-        addScore()
+        func addScore(){
+            gameScore += 1
+            scoreLabel.text = "Score: \(gameScore)"
+        }
     }
 
     //Score for the game
@@ -47,10 +47,11 @@ class ViewController: UIViewController, subviewDelegate {
     @IBOutlet weak var cloud4: UIImageView!
     
     //End game links
+    @IBOutlet weak var scoreLabel: UILabel!
     
     //loops
-    let coinArray = [0,2,4,6,8,10,12,14,16,18]
-    let pokeArray = [0,2,4,6,8,10,12,14,16,18]
+    let coinArray1 = [0,2,4,6,8,10,12,14,16,18]
+    let pokeArray1 = [0,2,4,6,8,10,12,14,16,18]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +81,7 @@ class ViewController: UIViewController, subviewDelegate {
         //Coin - Collectible
         for index in 0...9{
             
-            let delay = Double(self.coinArray[index])
+            let delay = Double(self.coinArray1[index])
             let release  = DispatchTime.now() + delay
             DispatchQueue.main.asyncAfter(deadline: release){
                 let coinImage = UIImageView(image: nil)
@@ -100,12 +101,32 @@ class ViewController: UIViewController, subviewDelegate {
              
                 //Coin speed and positioning
              coinImage.image = UIImage.animatedImage(with: coinArray, duration: 0.5)
-                coinImage.frame = CGRect(x:self.W, y:CGFloat(arc4random_uniform(self.H)-50)), width: self.W*(0.1), height
-        
+                coinImage.frame = CGRect(x:self.W, y:CGFloat(arc4random_uniform(UInt32(self.H)-50)), width: self.W*(0.1), height: self.H*(0.1))
+                
+                self.view.addSubview(coinImage)
+                self.view.bringSubview(toFront: coinImage)
+                self.dynamicBehaviour.addItem(coinImage)
+                
+                //Coin speed setting
+                self.dynamicBehaviour.addLinearVelocity(CGPoint(x: -300, y: 0), for: coinImage)
+                self.collisionBehaviour.addItem(coinImage)
+                
+                //Removing coins after collision
+                self.collisionBehaviour.action =
+                    {if coinImage.frame.intersects(self.pidgeot.frame){
+                        coinImage.removeFromSuperview()
+                        }
+                        
+                        //Timer
+                        let timer = DispatchTime.now() + 20
+                        DispatchQueue.main.asyncAfter(deadline: timer){
+                
+                        }
+                
         //Pokeball - Enemy
         for index in 0...9{
         
-            let delay = Double(self.pokeArray[index])
+            let delay = Double(self.pokeArray1[index])
         let release = DispatchTime.now() + delay
             DispatchQueue.main.asyncAfter(deadline: release){
                 
@@ -165,7 +186,7 @@ class ViewController: UIViewController, subviewDelegate {
         }, completion: nil
         )
         
-        
+            }
     };
                 }
             }

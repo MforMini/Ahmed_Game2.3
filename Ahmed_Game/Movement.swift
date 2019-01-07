@@ -11,6 +11,7 @@ import UIKit
 class Movement: UIImageView {
 
     var startLocation: CGPoint?
+    var delegate: subviewDelegate?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -24,7 +25,20 @@ class Movement: UIImageView {
         let dx = currentLocation!.x - startLocation!.x
         let dy = currentLocation!.y - startLocation!.y
         
-        self.center = CGPoint(x: self.center.x+dx, y:self.center.y+dy)
+        var newcenter = CGPoint(x: self.center.x+dx, y: self.center.y+dy)
+        
+        //Constraining movement 
+        let halfx = self.bounds.midX
+        newcenter.x = max (halfx, newcenter.x)
+        newcenter.x = min (self.superview!.bounds.size.width - halfx,newcenter.x)
+        
+        let halfy = self.bounds.midX
+        newcenter.y = max (halfy, newcenter.y)
+        newcenter.y = min (self.superview!.bounds.size.width - halfy,newcenter.y)
+        
+        self.center = newcenter
+        
+        self.delegate?.changeSomething()
     }
 
 
